@@ -55,14 +55,38 @@ HANMANPICS = ['''
  /|\  |
  / \  |
       |
+=========''', '''
+
+  +---+
+  |   |
+ [O   |
+ /|\  |
+ / \  |
+      |
+=========''', '''
+
+  +---+
+  |   |
+ [O]  |
+ /|\  |
+ / \  |
+      |
 =========''']
 
-words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llam mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zerbra'.split()
+words = {'Colors':'red orange yellow green blue indigo violet white black brown'.split(),
+         'Shape':'square triangle rectangle circle ellipse rhombus trapezoid chevron pentagon hexagon septagon octagon'.split(),
+         'Animals':'bat bear beaver cat cougar crab deer dog donkey duck eagle fish frog goat leech lion lizard monkey moose mouse otter owl panda python rabbit rat shark sheep skunk squid tiger turkey turtle weasel whale wolf wombat zerbra'.split()}
 
-def getRandomWord(wordList):
-    # This function returns a random string from the passed list of strings.
-    wordIndex = random.randint(0, len(wordList) - 1)
-    return wordList[wordIndex]
+def getRandomWord(wordDict):
+    # This function returns a random string from the passed dictionary of list of strings, and key also.
+    # First, randomly select a key from the dictionary:
+    wordKey = random.choice(list(wordDict.keys()))
+
+    # Second,randomly select a word from the key's list in the dictionary:
+
+    wordIndex = random.randint(0, len(wordDict[wordKey]) - 1)
+
+    return [wordDict[wordKey][wordIndex], wordKey]
 
 def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     print(HANGMANPICS[len(missedLetters)])
@@ -107,10 +131,11 @@ def playAgain():
 print('H A N G M A N')
 missedLetters = ''
 correctLetters = ''
-secretWord = getRandomWord(words)
+secretWord, secretKey = getRandomWord(words)
 gameIsDone = False
 
 while True:
+    print('The secret word is in the set: ' + secretKey)
     displayBoard(HANMANPICS, missedLetters, correctLetters, secretWord)
 
     # Let the player type in a letter.
@@ -143,7 +168,7 @@ while True:
             missedLetters = ''
             correctLetters = ''
             gameIsDone = False
-            secretWord = getRandomWord(words)
+            secretWord, secretKey = getRandomWord(words)
         else:
             break
 
