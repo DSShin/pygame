@@ -195,8 +195,8 @@ while True:
                 # update all the sonar devices currently on the map.
                 for x, y in previousMoves:
                     makeMove(theBoard, theChests, x, y)
-                drawBoard(theBoard)
-                print(moveResult)
+            drawBoard(theBoard)
+            print(moveResult)
 
             if len(theChests) == 0:
                 print('You have found all the sunken treasure chests! Congratulations and good game!')
@@ -209,7 +209,6 @@ while True:
             print('    The remaining chests were here:')
             for x, y in theChests:
                 print('    %s, %s' % (x, y))
-
-        if not playAgain():
-            sys.exit()
+            if not playAgain():
+                sys.exit()
 
