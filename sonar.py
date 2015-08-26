@@ -12,8 +12,8 @@ def drawBoard(board):
 
     # print the numbers across the top
     print(hline)
-    print('  ' + ('0123456789' * 6))
-    print()
+    print('   ' + ('0123456789' * 6))
+    #print()
 
     #print each of the 15 rows
     for i in range(15):
@@ -25,7 +25,7 @@ def drawBoard(board):
         print('%s%s %s %s' % (extraSpace, i, getRow(board, i), i))
 
     # print the numbers across the bottom
-    print()
+    #print()
     print('   ' + ('0123456789' * 6))
     print(hline)
 
