@@ -59,4 +59,4 @@ if mode[0] != 'b':
     print(getTranslatedMessage(mode, message, key))
 else:
     for key in range(1, MAX_KEY_SIZE + 1):
-        print(key, getTranslatedMessage('decrypy', message, key))
+        print(key, getTranslatedMessage('decrypt', message, key))
