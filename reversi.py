@@ -11,12 +11,12 @@ def drawBoard(board):
     print('    1   2   3   4   5   6   7   8')
     print(HLINE)
     for y in range(8):
-        print(VLINE)
+        #print(VLINE)
         print(y+1, end=' ')
         for x in range(8):
             print('| %s' % (board[x][y]), end=' ')
         print('|')
-        print(VLINE)
+        #print(VLINE)
         print(HLINE)
 
 
@@ -96,7 +96,7 @@ def getBoardWithValidMoves(board, tile):
     # Returns a new board with . marking the valid moves the given player can make
     dupeBoard = getBoardCopy(board)
 
-    for x, y in getBoardWithValidMoves(dupeBoard, tile):
+    for x, y in getValidMoves(dupeBoard, tile):
         dupeBoard[x][y] = '.'
     return dupeBoard
 
@@ -290,7 +290,7 @@ while True:
     # Display the final score.
     drawBoard(mainBoard)
     scores = getScoreOfBoard(mainBoard)
-    print('X scored %s points. O scored %s point' % (scores['X'], scores['Y']))
+    print('X scored %s points. O scored %s point' % (scores['X'], scores['O']))
     if scores[playerTile] > scores[computerTile]:
         print('You beat the computer by $s points! Congratulations!' % (scores[playerTile] - scores[computerTile]))
     elif scores[playerTile] < scores[computerTile]:
