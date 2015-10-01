@@ -33,6 +33,7 @@ moveUp = False
 moveDown = False
 
 MOVESPEED = 6
+
 # set up music
 pickUpSound = pygame.mixer.Sound('pickup.wav')
 pygame.mixer.music.load('background.mid')
