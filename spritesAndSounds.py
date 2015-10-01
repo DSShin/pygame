@@ -108,7 +108,7 @@ while True:
 
 
     # draw the block onto the surface
-    windowSurface.bilit(playerStretchedImage, player)
+    windowSurface.blit(playerStretchedImage, player)
 
     # check if the block has intersected with any food squares.
     for food in foods[:]:
